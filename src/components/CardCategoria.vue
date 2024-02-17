@@ -8,7 +8,7 @@
     </header>
     <ul class="categoria__ingredientes">
       <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-        {{ ingrediente }}
+        <Tag :texto="ingrediente" />
       </li>
     </ul>
   </article>
@@ -17,15 +17,17 @@
 <script lang="ts">
 import type ICategoria from '@/interfaces/ICategoria';
 import { defineComponent, type PropType } from 'vue';
+import Tag from './Tag.vue';
 
 export default defineComponent({
-  name: 'CardCategoria',
-  props: {
-    categoria: {
-      type: Object as PropType<ICategoria>,
-      required: true
-    }
-  }
+    name: 'CardCategoria',
+    props: {
+        categoria: {
+            type: Object as PropType<ICategoria>,
+            required: true
+        }
+    },
+    components: { Tag }
 })
 </script>
 
