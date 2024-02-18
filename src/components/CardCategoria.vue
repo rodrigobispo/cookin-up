@@ -20,14 +20,14 @@ import { defineComponent, type PropType } from 'vue';
 import Tag from './Tag.vue';
 
 export default defineComponent({
-    name: 'CardCategoria',
-    props: {
-        categoria: {
-            type: Object as PropType<ICategoria>,
-            required: true
-        }
-    },
-    components: { Tag }
+  name: 'CardCategoria',
+  props: {
+    categoria: {
+      type: Object as PropType<ICategoria>,
+      required: true
+    }
+  },
+  components: { Tag }
 })
 </script>
 

@@ -24,15 +24,15 @@ import type ICategoria from '@/interfaces/ICategoria';
 import CardCategoria from './CardCategoria.vue';
 
 export default {
-    data() {
-        return {
-            categorias: [] as ICategoria[]
-        };
-    },
-    async created() {
-        this.categorias = await obterCategorias();
-    },
-    components: { CardCategoria }
+  data() {
+    return {
+      categorias: [] as ICategoria[]
+    };
+  },
+  async created() {
+    this.categorias = await obterCategorias();
+  },
+  components: { CardCategoria }
 }
 </script>
 
