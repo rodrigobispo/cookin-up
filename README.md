@@ -1,6 +1,6 @@
-# cookin-up-gerado
+# cookin-up
 
-This template should help get you started developing with Vue 3 in Vite.
+Faz pesquisa de receitas a partir de ingredientes selecionados. Projeto de estudo em Vue 3 com Vite a partir de conhecimentos e treinamentos adquiridos com a Alura.
 
 ## Recommended IDE Setup
 

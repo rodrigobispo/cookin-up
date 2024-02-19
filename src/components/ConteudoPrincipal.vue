@@ -1,7 +1,9 @@
 <template>
   <main class="conteudo-principal">
     <SuaLista :ingredientes="ingredientes" />
-    <SelecionarIngredientes />
+    <SelecionarIngredientes
+      @adicionarIngrediente="adicionaIngrediente"
+      @removerIngrediente="removeIngrediente" />
   </main>
 </template>
 
@@ -14,8 +16,16 @@ export default defineComponent({
   components: { SelecionarIngredientes, SuaLista },
   data() {
     return {
-      ingredientes: ['Alho', 'Manteiga', 'Leite']
+      ingredientes: [] as string[]
     };
   },
+  methods: {
+    adicionaIngrediente(ingrediente: string) {
+      this.ingredientes.push(ingrediente);
+    },
+    removeIngrediente(ingrediente: string) {
+      this.ingredientes = this.ingredientes.filter(ingredienteLista => ingredienteLista !== ingrediente);
+    }
+  }
 })
 </script>
