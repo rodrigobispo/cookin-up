@@ -8,22 +8,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SuaLista from './SuaLista.vue';
 
 export default defineComponent({
-  data() {
+  setup() {
+    const ingredientes = ref<string[]>([]);
+
+    function adicionaIngrediente(ingrediente: string) {
+      ingredientes.value.push(ingrediente);
+    }
+    function removeIngrediente(ingrediente: string) {
+      ingredientes.value = ingredientes.value.filter(ingredienteLista => ingredienteLista !== ingrediente);
+    }
+
     return {
-      ingredientes: [] as string[]
-    };
-  },
-  methods: {
-    adicionaIngrediente(ingrediente: string) {
-      this.ingredientes.push(ingrediente);
-    },
-    removeIngrediente(ingrediente: string) {
-      this.ingredientes = this.ingredientes.filter(ingredienteLista => ingredienteLista !== ingrediente);
+      ingredientes,
+      adicionaIngrediente,
+      removeIngrediente
     }
   },
   components: { SelecionarIngredientes, SuaLista },

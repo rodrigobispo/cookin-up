@@ -1,15 +1,15 @@
 <template>
   <Banner />
-  <ConteudoPrincipal />
+  <ConteudoPrincipalCompositionApiModo2 />
   <Rodape />
 </template>
 
 <script lang="ts">
 import Banner from './components/Banner.vue'
-import ConteudoPrincipal from './components/ConteudoPrincipal.vue'
+import ConteudoPrincipalCompositionApiModo2 from './components/ConteudoPrincipalCompositionApiModo2.vue'
 import Rodape from './components/Rodape.vue'
 
 export default {
-  components: { Banner, ConteudoPrincipal, Rodape }
+  components: { Banner, ConteudoPrincipalCompositionApiModo2, Rodape }
 }
 </script>
