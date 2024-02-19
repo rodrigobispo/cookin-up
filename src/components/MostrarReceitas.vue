@@ -33,13 +33,17 @@
 
 <script lang="ts">
 import type IReceita from '@/interfaces/IReceita';
-import { defineComponent } from 'vue';
+import { defineComponent, type PropType } from 'vue';
 import BotaoPrincipal from './BotaoPrincipal.vue';
 import CardReceita from './CardReceita.vue';
 import { getUrlReceitas } from '@/http/index';
+import { itensDaLista1EstaoEmLista2 } from '@/operacoes/listas';
 
 export default defineComponent({
   name: 'MostrarReceitas',
+  props: {
+    ingredientes: { type: Array as PropType<string[]>, required: true }
+  },
   data() {
     return {
       receitas: [] as IReceita[]
@@ -51,7 +55,12 @@ export default defineComponent({
   methods: {
     async obterReceitas() {
       const resposta = await fetch(getUrlReceitas());
-      this.receitas = await resposta.json();
+      const receitasEncontradas = await resposta.json() as Array<IReceita>;
+
+      this.receitas = receitasEncontradas.filter((receita) => {
+        const possoFazerReceita = itensDaLista1EstaoEmLista2(this.ingredientes, receita.ingredientes);
+        return possoFazerReceita;
+      });
     }
   },
   components: { BotaoPrincipal, CardReceita }

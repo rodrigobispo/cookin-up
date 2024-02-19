@@ -11,6 +11,7 @@
 
       <MostrarReceitas
         v-else-if="conteudo === 'MostrarReceitas'"
+        :ingredientes="ingredientes"
         @editarReceitas="navegarPara('SelecionarIngredientes')"
       />
     </KeepAlive>
